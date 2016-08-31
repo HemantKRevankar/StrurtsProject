@@ -9,5 +9,15 @@
 			<result name="success">/welcome.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>
+		
+		<action name="uploadFile" class="com.hkr.struts.action.FileUploadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">2048000</param>
+				<param name="allowedTypes">image/png,image/gif,image/jpeg</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">file.jsp</result>
+			<result name="input">uploadFile.jsp</result>
+		</action>
 	</package>
 </struts>
